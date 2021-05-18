@@ -44,7 +44,6 @@ public class SplashActivity extends AppCompatActivity {
         } else {
             MainActivity.start(this);
         }
-
     }
 
     @Override

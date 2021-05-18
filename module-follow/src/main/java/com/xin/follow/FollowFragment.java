@@ -1,4 +1,4 @@
-package com.xin.home;
+package com.xin.follow;
 
 
 import android.view.View;
@@ -7,21 +7,21 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.google.android.material.tabs.TabLayout;
 import com.xin.base.fragment.MvvmLazyFragment;
 import com.xin.base.viewmodel.IMvvmBaseViewModel;
 import com.xin.common.router.RouterFragmentPath;
-import com.xin.home.adapter.HomeFragmentPageAdapter;
-import com.xin.home.daily.DailyFragment;
-import com.xin.home.databinding.HomeFragmentHomeBinding;
-import com.xin.home.discover.DisCoverFragment;
-import com.xin.home.nominate.NominateFragment;
-import com.google.android.material.tabs.TabLayout;
+import com.xin.follow.adapter.FollowFragmentPageAdapter;
+import com.xin.follow.daily.DailyFragment;
+import com.xin.follow.databinding.FollowFragmentFollowBinding;
+import com.xin.follow.discover.DisCoverFragment;
+import com.xin.follow.nominate.NominateFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 应用模块: home
+ * 应用模块: chat
  * <p>
  * 类描述: 首页-fragment
  * <p>
@@ -29,10 +29,10 @@ import java.util.List;
  * @author zxj
  * @since 2020-02-27
  */
-@Route(path = RouterFragmentPath.Home.PAGER_HOME)
-public class HomeFragment extends MvvmLazyFragment<HomeFragmentHomeBinding, IMvvmBaseViewModel> {
+@Route(path = RouterFragmentPath.Follow.PAGER_FOLLOW)
+public class FollowFragment extends MvvmLazyFragment<FollowFragmentFollowBinding, IMvvmBaseViewModel> {
 
-    private HomeFragmentPageAdapter pageAdapter;
+    private FollowFragmentPageAdapter pageAdapter;
 
     @Override
     protected void onFragmentFirstVisible() {
@@ -43,21 +43,21 @@ public class HomeFragment extends MvvmLazyFragment<HomeFragmentHomeBinding, IMvv
         fragments.add(NominateFragment.newInstance());
         fragments.add(DailyFragment.newInstance());
         pageAdapter.setData(fragments);
-        viewDataBinding.vpHomeContent.setCurrentItem(1);
+        viewDataBinding.vpFollowContent.setCurrentItem(1);
 
     }
 
     private void initView() {
-        pageAdapter = new HomeFragmentPageAdapter(getChildFragmentManager(),
+        pageAdapter = new FollowFragmentPageAdapter(getChildFragmentManager(),
                 FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        viewDataBinding.vpHomeContent.setAdapter(pageAdapter);
-        viewDataBinding.tabLayout.setupWithViewPager(viewDataBinding.vpHomeContent);
-        viewDataBinding.vpHomeContent.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(viewDataBinding.tabLayout));
+        viewDataBinding.vpFollowContent.setAdapter(pageAdapter);
+        viewDataBinding.tabLayout.setupWithViewPager(viewDataBinding.vpFollowContent);
+        viewDataBinding.vpFollowContent.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(viewDataBinding.tabLayout));
         viewDataBinding.tabLayout
                 .addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
                     @Override
                     public void onTabSelected(TabLayout.Tab tab) {
-                        viewDataBinding.vpHomeContent.setCurrentItem(tab.getPosition());
+                        viewDataBinding.vpFollowContent.setCurrentItem(tab.getPosition());
                     }
 
                     @Override
@@ -82,7 +82,7 @@ public class HomeFragment extends MvvmLazyFragment<HomeFragmentHomeBinding, IMvv
 
     @Override
     public int getLayoutId() {
-        return R.layout.home_fragment_home;
+        return R.layout.follow_fragment_follow;
     }
 
     @Override
@@ -99,4 +99,6 @@ public class HomeFragment extends MvvmLazyFragment<HomeFragmentHomeBinding, IMvv
     protected void onRetryBtnClick() {
 
     }
+
+
 }
