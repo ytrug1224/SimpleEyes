@@ -10,7 +10,7 @@ import com.limpoxe.support.servicemanager.ServiceManager;
 import com.limpoxe.support.servicemanager.util.RefIectUtil;
 
 /**
- * Created by cailiming on 16/4/14.
+ * Created by zxj on 16/4/14.
  */
 public class ContentProviderCompat {
 

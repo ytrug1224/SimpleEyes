@@ -27,7 +27,7 @@ import java.util.List;
  * <p>
  *
  * @author zxj
- * @since 2020-02-27
+ * @since 2020-01-27
  */
 @Route(path = RouterFragmentPath.Follow.PAGER_FOLLOW)
 public class FollowFragment extends MvvmLazyFragment<FollowFragmentFollowBinding, IMvvmBaseViewModel> {

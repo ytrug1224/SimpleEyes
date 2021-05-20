@@ -6,7 +6,7 @@ import android.util.Log;
 import java.util.Hashtable;
 
 /**
- * Created by cailiming on 16/1/1.
+ * Created by zxj on 16/1/1.
  */
 public class ServicePool {
 
@@ -32,7 +32,7 @@ public class ServicePool {
                     return object;
                 }
             };
-            fetcher.mServiceId ++;
+            fetcher.mServiceId++;
             SYSTEM_SERVICE_MAP.put(name, fetcher);
         }
     }
@@ -57,7 +57,7 @@ public class ServicePool {
                     return object;
                 }
             };
-            fetcher.mServiceId ++;
+            fetcher.mServiceId++;
             SYSTEM_SERVICE_MAP.put(name, fetcher);
         }
     }
@@ -68,7 +68,7 @@ public class ServicePool {
         return fetcher == null ? null : fetcher.getService();
     }
 
-    public static void unRegister(String name){
+    public static void unRegister(String name) {
         Log.d(TAG, "unRegister service " + name);
         SYSTEM_SERVICE_MAP.remove(name);
     }

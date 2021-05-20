@@ -1,7 +1,7 @@
 package com.limpoxe.support.servicemanager.local;
 
 /**
- * Created by cailiming on 16/1/1.
+ * Created by zxj on 16/1/1.
  */
 public abstract class ServiceFetcher {
     int mServiceId;

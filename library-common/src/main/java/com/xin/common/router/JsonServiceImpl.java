@@ -16,7 +16,7 @@ import java.lang.reflect.Type;
  * <p>
  *
  * @author zxj
- * @since 2020-02-27
+ * @since 2020-01-27
  */
 @Route(path = "/video/json")
 public class JsonServiceImpl implements SerializationService

@@ -13,7 +13,7 @@ import com.limpoxe.support.servicemanager.compat.ContentProviderCompat;
 import com.limpoxe.support.servicemanager.local.ServicePool;
 
 /**
- * Created by cailiming on 16/6/3.
+ * Created by zxj on 16/6/3.
  */
 public class ServiceManager {
 
@@ -52,7 +52,6 @@ public class ServiceManager {
      * @return
      */
     public static Object getService(String name, ClassLoader interfaceClassloader) {
-
         //首先在当前进程内查询
         Object service = ServicePool.getService(name);
 
@@ -119,10 +118,8 @@ public class ServiceManager {
      * 给当前进程发布一个服务, 发布后其他进程可使用此服务
      */
     public static void publishService(String name, final ServicePool.ClassProvider provider) {
-
         //先缓存到本地
         ServicePool.registerClass(name, provider);
-
         int pid = Process.myPid();
         Bundle argsBundle = new Bundle();
         argsBundle.putInt(ServiceProvider.PID, pid);

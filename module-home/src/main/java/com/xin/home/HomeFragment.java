@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.google.android.material.tabs.TabLayout;
 import com.xin.base.fragment.MvvmLazyFragment;
 import com.xin.base.viewmodel.IMvvmBaseViewModel;
 import com.xin.common.router.RouterFragmentPath;
@@ -15,7 +16,6 @@ import com.xin.home.daily.DailyFragment;
 import com.xin.home.databinding.HomeFragmentHomeBinding;
 import com.xin.home.discover.DisCoverFragment;
 import com.xin.home.nominate.NominateFragment;
-import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import java.util.List;
  * <p>
  *
  * @author zxj
- * @since 2020-02-27
+ * @since 2020-01-27
  */
 @Route(path = RouterFragmentPath.Home.PAGER_HOME)
 public class HomeFragment extends MvvmLazyFragment<HomeFragmentHomeBinding, IMvvmBaseViewModel> {
@@ -44,7 +44,6 @@ public class HomeFragment extends MvvmLazyFragment<HomeFragmentHomeBinding, IMvv
         fragments.add(DailyFragment.newInstance());
         pageAdapter.setData(fragments);
         viewDataBinding.vpHomeContent.setCurrentItem(1);
-
     }
 
     private void initView() {

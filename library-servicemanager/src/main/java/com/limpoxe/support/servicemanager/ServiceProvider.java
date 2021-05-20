@@ -22,8 +22,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 /**
- * Created by cailiming on 16/3/11.
- *
+ * Created by zxj on 16/3/11.
+ * <p>
  * 利用ContentProvider实现同步跨进程调用，如果contentprovider所在进程退出，
  * 其他服务进程注册的binder和service信息会丢失
  */
@@ -55,7 +55,7 @@ public class ServiceProvider extends ContentProvider {
 
     public static Uri buildUri() {
         if (CONTENT_URI == null) {
-            CONTENT_URI = Uri.parse("content://"+ ServiceManager.sApplication.getPackageName() + ".svcmgr/call");
+            CONTENT_URI = Uri.parse("content://" + ServiceManager.sApplication.getPackageName() + ".svcmgr/call");
         }
         return CONTENT_URI;
     }
@@ -88,11 +88,10 @@ public class ServiceProvider extends ContentProvider {
                 processBinder.remove(pid);
             }
         } else if (method.equals(PUBLISH_SERVICE)) {
-
             String serviceName = arg;
             int pid = extras.getInt(PID);
             String interfaceClass = extras.getString(INTERFACE);
-            IBinder binder =  processBinder.get(pid);
+            IBinder binder = processBinder.get(pid);
             if (binder != null && binder.isBinderAlive()) {
                 Recorder recorder = new Recorder();
                 recorder.pid = pid;
@@ -103,7 +102,6 @@ public class ServiceProvider extends ContentProvider {
             }
 
             return null;
-
         } else if (method.equals(UNPUBLISH_SERVICE)) {
 
             int pid = extras.getInt(PID);
@@ -117,9 +115,7 @@ public class ServiceProvider extends ContentProvider {
 
             return null;
         } else if (method.equals(CALL_SERVICE)) {
-
             return MethodRouter.routerToInstance(extras);
-
         } else if (method.equals(QUERY_INTERFACE)) {
             Bundle bundle = new Bundle();
             Recorder recorder = allServiceList.get(arg);
@@ -130,9 +126,7 @@ public class ServiceProvider extends ContentProvider {
         } else if (method.equals(QUERY_SERVICE)) {
             String serviceName = arg;
             if (allServiceList.containsKey(serviceName)) {
-
                 Object instance = ServicePool.getService(serviceName);
-
                 Bundle bundle = new Bundle();
                 if (instance != null && !Proxy.isProxyClass(instance.getClass())) {
                     bundle.putBoolean(QUERY_SERVICE_RESULT_IS_IN_PROVIDIDER_PROCESS, true);
@@ -151,7 +145,6 @@ public class ServiceProvider extends ContentProvider {
                     return null;
                 }
             }
-
         }
         return null;
     }
@@ -162,7 +155,7 @@ public class ServiceProvider extends ContentProvider {
         //服务提供方进程挂了,或者服务提供方进程主动通知清理服务, 则先清理服务注册表, 再通知所有客户端清理自己的本地缓存
         processBinder.remove(pid);
         Iterator<Map.Entry<String, Recorder>> iterator = allServiceList.entrySet().iterator();
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             Map.Entry<String, Recorder> entry = iterator.next();
             if (entry.getValue().pid.equals(pid)) {
                 iterator.remove();

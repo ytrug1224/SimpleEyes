@@ -11,7 +11,6 @@ import java.io.Serializable;
  * @author zxj
  * @since 2020-01-27
  */
-public class BaseCustomViewModel implements Serializable
-{
-    
+public class BaseCustomViewModel implements Serializable {
+
 }
