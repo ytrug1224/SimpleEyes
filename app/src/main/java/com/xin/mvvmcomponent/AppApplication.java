@@ -1,5 +1,7 @@
 package com.xin.mvvmcomponent;
 
+import com.github.moduth.blockcanary.BlockCanary;
+import com.github.moduth.blockcanary.BlockCanaryContext;
 import com.xin.base.base.BaseApplication;
 import com.xin.common.config.ModuleLifecycleConfig;
 
@@ -20,5 +22,7 @@ public class AppApplication extends BaseApplication {
         setsDebug(BuildConfig.DEBUG);
         // 初始化需要初始化的组件
         ModuleLifecycleConfig.getInstance().initModuleAhead(this);
+        BlockCanary.install(this, new AppBlockContext()).start();
     }
+
 }

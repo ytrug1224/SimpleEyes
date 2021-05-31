@@ -15,7 +15,7 @@ import com.xin.home.adapter.HomeFragmentPageAdapter;
 import com.xin.home.daily.DailyFragment;
 import com.xin.home.databinding.HomeFragmentHomeBinding;
 import com.xin.home.discover.DisCoverFragment;
-import com.xin.home.nominate.NominateFragment;
+import com.xin.home.nominate.RecommendFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +40,7 @@ public class HomeFragment extends MvvmLazyFragment<HomeFragmentHomeBinding, IMvv
         initView();
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(DisCoverFragment.newInstance());
-        fragments.add(NominateFragment.newInstance());
+        fragments.add(RecommendFragment.newInstance());
         fragments.add(DailyFragment.newInstance());
         pageAdapter.setData(fragments);
         viewDataBinding.vpHomeContent.setCurrentItem(1);

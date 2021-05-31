@@ -78,7 +78,6 @@ public class DailyModel<T> extends BasePagingModel<T> {
     public void refresh() {
         isRefresh = true;
         load();
-
     }
 
     public void loadMore() {

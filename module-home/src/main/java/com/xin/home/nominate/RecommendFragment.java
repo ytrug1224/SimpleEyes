@@ -26,13 +26,13 @@ import java.util.ArrayList;
  * @author zxj
  * @since 2020-02-09
  */
-public class NominateFragment
+public class RecommendFragment
         extends MvvmLazyFragment<HomeFragmentNominateBinding, NominateViewModel>
         implements INominateView {
     private ProviderNominateAdapter adapter;
 
-    public static NominateFragment newInstance() {
-        NominateFragment fragment = new NominateFragment();
+    public static RecommendFragment newInstance() {
+        RecommendFragment fragment = new RecommendFragment();
         return fragment;
     }
 

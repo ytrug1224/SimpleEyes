@@ -62,4 +62,5 @@ dependencies {
     api rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
     api rootProject.ext.dependencies["immersionbar"]
     api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["blockCanary"]
 }
